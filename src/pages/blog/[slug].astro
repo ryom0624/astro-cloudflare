@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id.replace(/\.md$/, '') }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<BaseLayout title={`${post.data.title} | SI研究所`} description={post.data.description}>
+<article class="article"><a class="text-link" href="/blog/">← ブログ一覧へ</a><div class="blog-meta" style="margin-top:28px"><time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString('ja-JP')}</time><span>{post.data.category}</span></div><h1>{post.data.title}</h1><p class="lead">{post.data.description}</p><div class="article-content"><Content /></div></article>
+</BaseLayout>
