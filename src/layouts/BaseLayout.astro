@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-const { title = 'SI研究所 | Web・システム開発', description = 'Web制作、システム開発、SI導入支援でビジネスの次の一歩を支えます。' } = Astro.props;
+const { title = 'SI研究所 | Web・システム開発', description = 'Web制作、システム開発、SI導入支援。事業課題を整理し、設計から実装・運用まで支援します。' } = Astro.props;
 const path = Astro.url.pathname;
 ---
 <!doctype html>
@@ -9,26 +9,29 @@ const path = Astro.url.pathname;
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content={description} />
-<meta name="theme-color" content="#f5f3ee" />
+<meta name="theme-color" content="#f7f8f6" />
 <title>{title}</title>
 <link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
 <body>
+<a class="skip-link" href="#main">本文へスキップ</a>
 <header class="site-header">
-<a class="brand" href="/"><span class="brand-mark">SI</span><span>SI研究所<small>SMART IDEAS, REAL IMPACT.</small></span></a>
-<nav aria-label="メインナビゲーション">
-<a class:active={path === '/'} href="/">トップ</a>
-<a class:active={path === '/services/'} href="/services/">事業内容</a>
-<a class:active={path === '/company/'} href="/company/">会社情報</a>
-<a class:active={path.startsWith('/blog')} href="/blog/">ブログ</a>
-<a class="nav-contact" href="mailto:info@example.com">お問い合わせ ↗</a>
-</nav>
+  <a class="brand" href="/" aria-label="SI研究所 ホーム"><span class="brand-mark">SI<span>.</span></span><span class="brand-name">SI研究所<small>SOFTWARE & INTEGRATION</small></span></a>
+  <nav aria-label="メインナビゲーション">
+    <a class:active={path === '/'} href="/">ホーム</a>
+    <a class:active={path === '/services/'} href="/services/">事業内容</a>
+    <a class:active={path === '/news/'} href="/news/">ニュース</a>
+    <a class:active={path === '/members/'} href="/members/">メンバー</a>
+    <a class:active={path.startsWith('/blog')} href="/blog/">技術ブログ</a>
+    <a class="nav-contact" class:active={path === '/contact/'} href="/contact/">お問い合わせ <span>↗</span></a>
+  </nav>
 </header>
-<main><slot /></main>
+<main id="main"><slot /></main>
 <footer class="site-footer">
-<a class="brand" href="/"><span class="brand-mark">SI</span><span>SI研究所<small>SMART IDEAS, REAL IMPACT.</small></span></a>
-<p>技術とアイデアで、ビジネスを前へ。</p>
-<div class="footer-bottom"><span>© {new Date().getFullYear()} SI研究所</span><a href="/company/">会社情報</a><a href="/blog/">ブログ</a></div>
+  <div class="footer-main"><a class="brand" href="/"><span class="brand-mark">SI<span>.</span></span><span class="brand-name">SI研究所<small>SOFTWARE & INTEGRATION</small></span></a><p>事業と技術のあいだに、実装できる答えを。</p><a class="footer-contact" href="/contact/">ご相談はこちら ↗</a></div>
+  <div class="footer-bottom"><span>© {new Date().getFullYear()} SI研究所</span><div><a href="/company/">会社情報</a><a href="/privacy/">プライバシーポリシー</a></div></div>
 </footer>
 </body>
 </html>
