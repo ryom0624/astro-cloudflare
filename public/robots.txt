@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://astro-cloudflare.pages.dev/sitemap-index.xml
