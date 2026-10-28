@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const members = [
- {name:'佐藤 直人',role:'代表 / Business & SI',image:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85',bio:'事業課題の整理とプロジェクト推進を担当。関係者の認識をそろえ、現実的なロードマップに落とし込みます。'},
- {name:'高橋 美咲',role:'Web Designer / UX',image:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85',bio:'情報設計とUIデザインを担当。使う人の目線を大切に、伝わりやすく迷わないWeb体験を設計します。'},
- {name:'山本 健',role:'Software Engineer',image:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85',bio:'システムの設計・開発を担当。保守性、セキュリティ、運用のしやすさを意識して実装します。'}
+ {name:'佐藤 直人',role:'代表 / 事業・SI支援',image:'https://images.unsplash.com/photo-1588571907856-a68e5cc3f5b5?auto=format&fit=crop&w=1000&q=85',position:'center 34%',bio:'事業課題の整理とプロジェクト推進を担当。現場の声を起点に、実行できる計画へ落とし込みます。'},
+ {name:'高橋 美咲',role:'Webデザイン・UX設計',image:'https://images.unsplash.com/photo-1762073800992-618c7cfc2849?auto=format&fit=crop&w=1000&q=85',position:'center 35%',bio:'情報設計とUIデザインを担当。利用者が迷わず情報にたどり着ける、自然なWeb体験を設計します。'},
+ {name:'山本 健',role:'システム開発・エンジニアリング',image:'https://images.unsplash.com/photo-1696695353266-96d522c12d6b?auto=format&fit=crop&w=1000&q=85',position:'center 28%',bio:'システムの設計・開発を担当。保守性やセキュリティ、導入後の運用まで考慮して実装します。'}
 ];
 ---
 <BaseLayout title="メンバー紹介 | SI研究所" description="SI研究所のメンバーと、それぞれの専門領域をご紹介します。">
-<section class="page-heading"><span class="eyebrow">People / Our Team</span><h1>メンバー紹介</h1><p>事業、デザイン、エンジニアリング。それぞれの視点を持ち寄り、課題に向き合います。</p></section>
-<section class="section"><div class="members-grid">{members.map((member,i)=><article class="member-card"><img src={member.image} alt={member.name + 'のプロフィール写真'} loading="lazy" /><div class="member-info"><span class="member-role">TEAM 0{i+1} / {member.role}</span><h2>{member.name}</h2><p>{member.bio}</p></div></article>)}</div><p class="notice" style="margin-top:24px">※メンバー名・プロフィール・写真はデザイン確認用の架空サンプルです。公開前に実際の情報と使用許諾のある写真へ差し替えてください。</p></section>
-<section class="contact-band"><div><span class="eyebrow">Work with us</span><h2>プロジェクトの相談はこちら。</h2></div><a class="button" href="/contact/">お問い合わせ ↗</a></section>
+<section class="page-heading"><span class="eyebrow">私たちについて</span><h1>メンバー紹介</h1><p>事業、デザイン、エンジニアリング。それぞれの視点を持ち寄り、現場で役立つ仕組みをつくります。</p></section>
+<section class="section members-section"><div class="members-intro"><h2>違う専門性が、<br/>ひとつのチームになる。</h2><p>課題を整理するところから、設計・開発・導入後の改善まで。役割の違うメンバーが連携し、プロジェクトを前へ進めます。</p></div><div class="members-grid">{members.map((member)=><article class="member-card"><div class="member-photo"><img src={member.image} alt={member.name} style={`object-position:${member.position}`} loading="lazy" /><span class="member-photo-caption">SI LAB / TEAM</span></div><div class="member-info"><span class="member-role">{member.role}</span><h2>{member.name}</h2><p>{member.bio}</p></div></article>)}</div><p class="notice" style="margin-top:24px">※プロフィール名は架空のサンプルです。写真は日本で撮影されたストック写真を使用しています。公開時は実際のメンバー情報と、掲載許諾を確認した写真に差し替えてください。</p></section>
+<section class="contact-band"><div><span class="eyebrow">一緒に取り組む</span><h2>プロジェクトの相談はこちら。</h2></div><a class="button" href="/contact/">お問い合わせ ↗</a></section>
 </BaseLayout>
