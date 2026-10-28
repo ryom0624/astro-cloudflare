@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+export async function getStaticPaths() {
+  return ['site-launch','business-improvement','consultation-open','requirements-checklist','si-support'].map((slug) => ({ params: { slug } }));
+}
 const items = {
  'site-launch':{date:'2026.10.15',category:'お知らせ',title:'SI研究所のWebサイトを公開しました',body:'SI研究所のWebサイトを公開しました。本サイトでは、Web制作、システム開発、SI導入支援に関する情報や、技術・業務改善のヒントを発信していきます。ご相談はお問い合わせフォームよりお寄せください。'},
  'business-improvement':{date:'2026.10.08',category:'技術ノート',title:'小さく始める業務改善とシステム導入',body:'業務改善では、最初からすべてを置き換えるのではなく、日々の作業で時間がかかっている箇所やミスが起きやすい工程を見つけることが重要です。現状を可視化し、優先度の高い課題から小さく試し、効果を確認しながら範囲を広げることで、導入後の定着を目指します。'},
