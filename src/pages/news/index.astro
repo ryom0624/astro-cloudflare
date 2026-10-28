@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const news = [
+ {date:'2026.10.15',category:'お知らせ',title:'SI研究所のWebサイトを公開しました',slug:'site-launch'},
+ {date:'2026.10.08',category:'技術ノート',title:'小さく始める業務改善とシステム導入',slug:'business-improvement'},
+ {date:'2026.09.24',category:'お知らせ',title:'Web制作・システム開発のご相談受付を開始しました',slug:'consultation-open'},
+ {date:'2026.09.10',category:'技術ノート',title:'プロジェクト開始時の要件整理チェックリスト',slug:'requirements-checklist'},
+ {date:'2026.08.28',category:'お知らせ',title:'SI導入支援サービスのご案内',slug:'si-support'}
+];
+---
+<BaseLayout title="ニュース | SI研究所" description="SI研究所からのお知らせと技術ノート。">
+<section class="page-heading"><span class="eyebrow">News / Updates</span><h1>ニュース</h1><p>SI研究所からのお知らせ、サービス情報、技術ノートを掲載しています。</p></section>
+<section class="section"><div class="news-list">{news.map(n=><a class="news-row" href={`/news/${n.slug}/`}><time>{n.date}</time><span class="news-tag">{n.category}</span><span>{n.title}</span><span class="arrow">↗</span></a>)}</div><p class="notice" style="margin-top:24px">※ニュースは掲載イメージ用のサンプル原稿です。公開前に実際の内容・日付に更新してください。</p></section>
+</BaseLayout>
