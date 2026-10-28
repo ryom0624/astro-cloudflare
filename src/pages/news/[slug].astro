@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const items = {
+ 'site-launch':{date:'2026.10.15',category:'お知らせ',title:'SI研究所のWebサイトを公開しました',body:'SI研究所のWebサイトを公開しました。本サイトでは、Web制作、システム開発、SI導入支援に関する情報や、技術・業務改善のヒントを発信していきます。ご相談はお問い合わせフォームよりお寄せください。'},
+ 'business-improvement':{date:'2026.10.08',category:'技術ノート',title:'小さく始める業務改善とシステム導入',body:'業務改善では、最初からすべてを置き換えるのではなく、日々の作業で時間がかかっている箇所やミスが起きやすい工程を見つけることが重要です。現状を可視化し、優先度の高い課題から小さく試し、効果を確認しながら範囲を広げることで、導入後の定着を目指します。'},
+ 'consultation-open':{date:'2026.09.24',category:'お知らせ',title:'Web制作・システム開発のご相談受付を開始しました',body:'企業サイトの新規制作・リニューアル、業務システムの設計開発、既存サービスの導入支援などのご相談を受け付けています。要件がまだ明確でない段階でも、課題の整理からお手伝いします。'},
+ 'requirements-checklist':{date:'2026.09.10',category:'技術ノート',title:'プロジェクト開始時の要件整理チェックリスト',body:'プロジェクト開始時は、目的、対象ユーザー、対象範囲、関係者、既存環境、運用体制、予算とスケジュールを確認します。合意した内容を文書に残し、変更時の判断基準を共有することで、認識のずれを減らせます。'},
+ 'si-support':{date:'2026.08.28',category:'お知らせ',title:'SI導入支援サービスのご案内',body:'システム導入に伴う要件整理、製品・ベンダー選定の検討支援、進捗・課題管理、関係者間の調整などを支援します。導入すること自体ではなく、導入後に業務で活用されることを見据えてプロジェクトを進めます。'}
+};
+const item=items[Astro.params.slug];
+if (!item) return Astro.redirect('/news/');
+---
+<BaseLayout title={item.title + ' | SI研究所'} description={item.body}>
+<article class="news-detail"><a class="text-link" href="/news/">← ニュース一覧へ</a><div class="blog-meta" style="margin-top:28px"><time>{item.date}</time><span>{item.category}</span></div><h1>{item.title}</h1><p>{item.body}</p><p class="notice">※このニュースはサンプル原稿です。公開前に実際の内容へ更新してください。</p><a class="button" href="/contact/">お問い合わせ ↗</a></article>
+</BaseLayout>
